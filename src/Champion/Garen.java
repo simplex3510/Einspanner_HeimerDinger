@@ -1,6 +1,6 @@
 package Champion;
 
-public class Garen extends Champion {
+public class Garen extends NoneCost_Champ {
     Garen() {
         super.name = "가렌";
         super.level = 1;
@@ -18,7 +18,6 @@ public class Garen extends Champion {
         super.base_Health = 620;            super.health = base_Health;
         super.base_Health_Regen = 8;        super.health_Regen = base_Health_Regen;
 
-                                            super.cost_None = true;
         super.base_Cost = 0;                super.cost = base_Cost;
         super.base_Cost_Regen = 0;          super.cost_Regen = base_Cost_Regen;
 

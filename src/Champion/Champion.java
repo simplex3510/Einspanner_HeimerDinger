@@ -2,15 +2,13 @@ package Champion;
 
 import java.util.Scanner;
 
-
 public abstract class Champion {
     String name;
     int level;
-    int experience;
     int range;
     int Movement_speed;
 
-    double attack_Damage;           int base_AttackDamage;
+    double attack_Damage;           double base_AttackDamage;
     double ability_Power;
 
     double attack_Speed;            double base_AttackSpeed;
@@ -20,13 +18,8 @@ public abstract class Champion {
 
     double health;                  double base_Health;
     double health_Regen;            double base_Health_Regen;
-    double cost;                    int base_Cost;
+    double cost;                    double base_Cost;
     double cost_Regen;              double base_Cost_Regen;
-
-    boolean cost_None = false;
-    boolean cost_Mana = false;
-    boolean cost_Energy = false;
-    boolean cost_Fury_Rage = false;
 
     double armor;                   double base_armor;
     double magic_resistance;        double base_MagicResistance;
@@ -53,7 +46,6 @@ public abstract class Champion {
     int skill_R_Level=0;
     */
 
-    protected Champion() {}
     abstract void skill_Passive();
     abstract void skill_Q();
     abstract void skill_W();
@@ -61,7 +53,8 @@ public abstract class Champion {
     abstract void skill_R();
 
     public void showInfo() {
-        System.out.println("이름: " + name);
+        // 챔피언 정보 출력
+        /*System.out.println("이름: " + name);
         System.out.println("레벨: " + level);
         System.out.printf("체력: %.2f(+%d)\n", health, growth_Health);
         System.out.printf("5초당 체력 회복: %.2f(+%.2f)\n", health_Regen, growth_HP_Regen);
@@ -84,7 +77,7 @@ public abstract class Champion {
         System.out.printf("방어력: %.2f(+%.2f)\n", armor, growth_Armor);
         System.out.printf("마법 저항력: %.2f(+%.2f)\n", magic_resistance, growth_MagicResistance);
         System.out.printf("이동 속도: %d\n", Movement_speed);
-        System.out.printf("사정 거리: %d\n\n", range);
+        System.out.printf("사정 거리: %d\n\n", range);*/
     }
 
     public void showSkillInfo() {
@@ -183,38 +176,4 @@ public abstract class Champion {
             skill_R_Level++;
     }
     */
-
-}
-
-class LoL {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int user = 0;
-
-        Kennen kennen = new Kennen();
-        Garen garen = new Garen();
-        Ashe ashe = new Ashe();
-
-        kennen.showInfo();
-        garen.showInfo();
-        ashe.showInfo();
-
-        for (int i=1; i<18; i++) {
-            kennen.level_Up();
-            garen.level_Up();
-            ashe.level_Up();
-        }
-        System.out.println();
-
-        kennen.showInfo();
-        garen.showInfo();
-        ashe.showInfo();
-
-        System.out.println();
-
-        kennen.showSkillInfo();
-        garen.showSkillInfo();
-        ashe.showSkillInfo();
-
-    }
 }

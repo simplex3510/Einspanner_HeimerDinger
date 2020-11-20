@@ -1,6 +1,6 @@
 package Champion;
 
-public class Ashe extends Champion {
+public class Ashe extends ManaCost_Champ {
     Ashe() {
         super.name ="애쉬";
         super.level = 1;
@@ -18,7 +18,6 @@ public class Ashe extends Champion {
         super.base_Health = 539.72;         super.health = base_Health;
         super.base_Health_Regen = 3.5;      super.health_Regen = base_Health_Regen;
 
-                                            super.cost_Mana = true;
         super.base_Cost = 280;              super.cost = base_Cost;
         super.base_Cost_Regen = 11.5;       super.cost_Regen = base_Cost_Regen;
 
@@ -83,7 +82,7 @@ public class Ashe extends Champion {
         System.out.println("챔피언에게 적중되면 서리 화살 효과가 적용되는 치명타로 판정됩니다.");
         System.out.println("사정 거리: " + range);
         System.out.println("마나 소모: 70" );
-        System.out.println("재사용 대기시간: 14/11.5/9/6.5/4\n");
+        System.out.println("재사용 대기시간: 14/11.5/9/6.5/4초\n");
     }
 
     public void skill_E() {
@@ -92,10 +91,10 @@ public class Ashe extends Champion {
         System.out.println("E - " + e_name);
 
         System.out.println("지정한 위치로 날아가며 그 일대를 밝혀줍니다. "
-                         + "밝혀진 시야는 5초간 유지됩니다.");
+                + "밝혀진 시야는 5초간 유지됩니다.");
         System.out.println("스킬을 2레벨로 올리면 2번까지 충전해서 시전할 수 있습니다.");
         System.out.println("사정 거리: 맵 전체");
-        System.out.println("재사용 대기시간: 90/80/70/60/50\n");
+        System.out.println("재사용 대기시간: 90/80/70/60/50초\n");
     }
 
     public void skill_R() {
@@ -104,11 +103,11 @@ public class Ashe extends Champion {
 
         System.out.println("R - " + r_name);
         System.out.println("커다란 화살을 일직선으로 발사하여 적 챔피언을 맞힐 경우 200/400/600 (+1.0AP)의 마법 피해를 입히고, 화살 발사 거리에 따라 해당 챔피언을 최대 3.5초까지 기절시킵니다.\n"
-                         + "주변 유닛에겐 절반의 피해를 입고 3초 동안 서리 화살의 둔화율이 적용됩니다.");
+                + "주변 유닛에겐 절반의 피해를 입고 3초 동안 서리 화살의 둔화율이 적용됩니다.");
         System.out.println("효과 범위: " + range);
         System.out.println("사정 거리: 맵 전체");
         System.out.println("마나 소모: 100");
-        System.out.println("재사용 대기시간: 100/90/80\n");
+        System.out.println("재사용 대기시간: 100/90/80초\n");
 
     }
 }
