@@ -2,7 +2,7 @@ package Champion;
 
 import java.util.Scanner;
 
-public abstract class Champion {
+abstract class Champion {
     String name;
     int level;
     int range;
@@ -52,35 +52,11 @@ public abstract class Champion {
     abstract void skill_E();
     abstract void skill_R();
 
-    public void showInfo() {
+    protected void showInfo() {
         // 챔피언 정보 출력
-        /*System.out.println("이름: " + name);
-        System.out.println("레벨: " + level);
-        System.out.printf("체력: %.2f(+%d)\n", health, growth_Health);
-        System.out.printf("5초당 체력 회복: %.2f(+%.2f)\n", health_Regen, growth_HP_Regen);
-
-        if (cost_Mana) {
-            System.out.printf("마나: %.2f(+%.2f)\n", cost, growth_Cost);
-            System.out.printf("5초당 마나 회복: %.2f(+%.2f)\n", cost_Regen, growth_Cost_Regen);
-        }
-        else if (cost_Energy) {
-            System.out.printf("기력: %.2f(+%.2f)\n", cost, growth_Cost);
-            System.out.printf("5초당 기력 회복: %.2f(+%.2f)\n", cost_Regen, growth_Cost_Regen);
-        }
-        else if (cost_None) {
-            System.out.println("소모값: -");
-            System.out.println("5초당 소모값 회복: -");
-        }
-
-        System.out.printf("공격력: %.2f(+%.2f)\n", attack_Damage, growth_AttackDamage);
-        System.out.printf("공격 속도: %.2f(+%.2f%%)\n", attack_Speed, growth_AttackSpeed);
-        System.out.printf("방어력: %.2f(+%.2f)\n", armor, growth_Armor);
-        System.out.printf("마법 저항력: %.2f(+%.2f)\n", magic_resistance, growth_MagicResistance);
-        System.out.printf("이동 속도: %d\n", Movement_speed);
-        System.out.printf("사정 거리: %d\n\n", range);*/
     }
 
-    public void showSkillInfo() {
+    protected void showSkillInfo() {
         skill_Passive();
         skill_Q();
         skill_W();
@@ -88,7 +64,7 @@ public abstract class Champion {
         skill_R();
     }
 
-    public void death_timer() {
+    protected void death_timer() {
         Scanner sc = new Scanner(System.in);
         System.out.print("게임 진행 시간(분): ");
         int game_time_minute = sc.nextInt();
@@ -132,13 +108,13 @@ public abstract class Champion {
         }
     }
 
-    public void next_Level_experience() {
+    protected void next_Level_experience() {
         int need_Experience = (280 + (level-1) * 100);
 
         System.out.println("레벨 업 필요 경험치: " + need_Experience);
     }
 
-    public void level_Up() {
+    protected void level_Up() {
         level++;
         health = grown_Stat(base_Health, growth_Health);
         cost = grown_Stat(base_Cost, growth_Cost);
@@ -150,10 +126,22 @@ public abstract class Champion {
         magic_resistance = grown_Stat(base_MagicResistance, growth_MagicResistance);
     }
 
-    public double grown_Stat(double base, double growth) {
+    protected void level_Down() {
+        level--;
+        health = grown_Stat(base_Health, growth_Health);
+        cost = grown_Stat(base_Cost, growth_Cost);
+        attack_Damage = grown_Stat(base_AttackDamage, growth_AttackDamage);
+        attack_Speed = grown_Stat_AttackSpeed(base_AttackSpeed, growth_AttackSpeed);
+        health_Regen = grown_Stat(base_Health_Regen, growth_HP_Regen);
+        cost_Regen = grown_Stat(base_Cost_Regen, growth_Cost_Regen);
+        armor = grown_Stat(base_armor, growth_Armor);
+        magic_resistance = grown_Stat(base_MagicResistance, growth_MagicResistance);
+    }
+
+    private double grown_Stat(double base, double growth) {
         return (base + growth * (level - 1) * (0.7025 + 0.0175 * (level - 1)));
     }
-    public double grown_Stat_AttackSpeed(double base, double growth) {
+    private double grown_Stat_AttackSpeed(double base, double growth) {
         return (base * (1 + (((level - 1) * growth)/100)));
     }
 

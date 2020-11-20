@@ -1,7 +1,7 @@
 package Champion;
 
-public abstract class ManaCost_Champ extends Champion {
-    public void showInfo() {
+abstract class ManaCost_Champ extends Champion {
+    protected void showInfo() {
         System.out.println("이름: " + name);
         System.out.println("레벨: " + level);
         System.out.printf("체력: %.2f(+%d)\n", health, growth_Health);

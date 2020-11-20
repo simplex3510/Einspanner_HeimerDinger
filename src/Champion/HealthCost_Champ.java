@@ -1,13 +1,13 @@
 package Champion;
 
-abstract class FuryRageCost_Champ extends Champion {
+abstract class HealthCost_Champ extends Champion {
     protected void showInfo() {
         System.out.println("이름: " + name);
         System.out.println("레벨: " + level);
         System.out.printf("체력: %.2f(+%d)\n", health, growth_Health);
         System.out.printf("5초당 체력 회복: %.2f(+%.2f)\n", health_Regen, growth_HP_Regen);
-        System.out.printf("최대 분노: %f", cost);
-
+        System.out.println("소모값: -");
+        System.out.println("5초당 소모값 회복: -");
         System.out.printf("공격력: %.2f(+%.2f)\n", attack_Damage, growth_AttackDamage);
         System.out.printf("공격 속도: %.2f(+%.2f%%)\n", attack_Speed, growth_AttackSpeed);
         System.out.printf("방어력: %.2f(+%.2f)\n", armor, growth_Armor);

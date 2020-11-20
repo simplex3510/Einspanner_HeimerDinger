@@ -18,7 +18,11 @@ public class HeimerDinger {
 
         shen.showInfo();
 
-        shen.showSkillInfo();
+        for (int i=18; 1<i; i--) {
+            shen.level_Down();
+        }
+
+        shen.showInfo();
 
     }
 }

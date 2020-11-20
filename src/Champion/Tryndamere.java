@@ -1,7 +1,7 @@
 package Champion;
 
-public class Zac extends HealthCost_Champ {
-    Zac() {
+public class Tryndamere extends FuryRageCost_Champ{
+    Tryndamere() {
         super.name = "자크";
         super.level = 1;
         super.range = 550;
